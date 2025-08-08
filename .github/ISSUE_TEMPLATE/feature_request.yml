@@ -1,0 +1,26 @@
+name: "Feature request"
+description: Suggest an improvement or new content
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to improve the project? Tell us about it.
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      description: Which part? (e.g., glossary, downloads, i18n, accessibility)
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should change and why?
+      placeholder: Be concise and specific
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Links, references, examples

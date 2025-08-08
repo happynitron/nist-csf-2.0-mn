@@ -1,0 +1,27 @@
+name: "Term update request"
+description: Propose a glossary term addition or change
+labels: [glossary]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help improve the Mongolian terminology for CSF 2.0.
+  - type: input
+    id: term
+    attributes:
+      label: Term (EN)
+      placeholder: e.g., Recover, Risk appetite
+      required: true
+  - type: input
+    id: current-mn
+    attributes:
+      label: Current translation (MN)
+  - type: input
+    id: proposed-mn
+    attributes:
+      label: Proposed translation (MN)
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why this change? Include sources if possible

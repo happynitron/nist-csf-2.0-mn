@@ -1,0 +1,31 @@
+name: "Bug report"
+description: Report a problem with the site or content
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide as much detail as possible.
+  - type: input
+    id: page
+    attributes:
+      label: Page/section
+      description: URL or section (e.g., functions, FAQ)
+      placeholder: https://...
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the issue and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional images that help explain the issue
+  - type: input
+    id: browser
+    attributes:
+      label: Browser/OS
+      placeholder: Edge 126 on Windows 11
