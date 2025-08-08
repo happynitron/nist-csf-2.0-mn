@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="mn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title data-i18n="head_title">NIST CSF 2.0 – Монгол орчуулга</title>
+    <meta id="meta-desc" name="description"
+        content="NIST Cybersecurity Framework 2.0–ийн монгол орчуулгын төслийн танилцуулга, татах холбоосууд, тайлбар, түгээмэл асуултууд." />
+    <meta property="og:title" content="NIST CSF 2.0 – Монгол орчуулга" />
+    <meta id="og-desc" property="og:description"
+        content="Кибер аюулгүй байдлын хүрээ (CSF) 2.0 хувилбарын монгол орчуулгын төсөл." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="robots" content="index,follow" />
+    <link id="canonical" rel="canonical" href="https://example.mn/csf2-mn" />
+    <meta property="og:image" content="https://example.mn/og-csf2-mn.png" />
+    <meta id="og-locale" property="og:locale" content="mn_MN" />
+    <link rel="alternate" hreflang="mn" href="https://example.mn/csf2-mn" />
+    <link rel="alternate" hreflang="en" href="https://example.mn/csf2-mn?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://example.mn/csf2-mn" />
+    <style>
+        :root {
+            --bg: #0b1020;
+            --card: #11162a;
+            --muted: #9aa4bf;
+            --text: #e6e9f2;
+            --brand: #5b9cff;
+            --brand-2: #8b5bff;
+            --ok: #22c55e;
+            --warn: #f59e0b;
+            --ring: 0 0 0 4px color-mix(in srgb, var(--brand) 30%, transparent);
+        }
+
+        * { box-sizing: border-box }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #0b1020, #0a0f1c);
+            color: var(--text);
+            font: 16px/1.6 system-ui, Segoe UI, Roboto, Arial, sans-serif
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: saturate(180%) blur(8px);
+            background: rgba(11, 16, 32, .6);
+            border-bottom: 1px solid #1f2a44;
+            z-index: 50
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .logo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 700
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2))
+        }
+
+    /* Logo sizing */
+    .logo-img{height:20px;width:auto;display:block}
+    .logo-svg{height:20px;width:auto;display:block}
+    .logo-link{display:inline-flex;align-items:center}
+
+        .nav-right { display:flex; align-items:center; gap:14px }
+        .nav-links a {
+            margin-left: 18px;
+            color: var(--muted)
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .hero {
+            padding: 72px 0 40px
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #24304f;
+            background: rgba(17, 22, 42, .6);
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--warn)
+        }
+
+        h1 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin: 16px 0 10px
+        }
+
+        .sub {
+            color: var(--muted);
+            max-width: 760px
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #223055;
+            background: #141b33;
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            border: none;
+            color: #0a0f1c
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: var(--ring)
+        }
+
+        .btn:focus-visible { box-shadow: var(--ring); outline: none }
+        .btn[disabled]{opacity:.6;cursor:not-allowed;pointer-events:none}
+
+        .grid {
+            display: grid;
+            gap: 16px
+        }
+
+        @media(min-width:840px) {
+            .grid.cols-3 {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .grid.cols-2 {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        section {
+            padding: 28px 0
+        }
+
+        .card {
+            background: linear-gradient(180deg, #0f152b, #0c1226);
+            border: 1px solid #1c2745;
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 18px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid #263354;
+            color: #b6c0da;
+            font-size: 12px;
+            margin-right: 6px
+        }
+
+        .list {
+            margin: 10px 0 0;
+            padding: 0 0 0 18px
+        }
+
+        .kicker {
+            color: #9ab5ff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: 12px
+        }
+
+        .faq summary {
+            cursor: pointer;
+            padding: 14px 0;
+            font-weight: 600
+        }
+
+        .faq details {
+            border-bottom: 1px solid #1f2a44
+        }
+
+        footer {
+            border-top: 1px solid #1f2a44;
+            color: #9da7c2;
+            padding: 18px 0;
+            margin-top: 30px
+        }
+
+        .note {
+            font-size: 13px;
+            color: #9aa4bf
+        }
+
+        .disabled {
+            opacity: .6;
+            pointer-events: none
+        }
+
+        .success {
+            color: var(--ok);
+            font-weight: 600
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 12px;
+            color: #aab3cd
+        }
+
+        .skip-link{position:absolute;left:-9999px}
+        .skip-link:focus{left:12px;top:12px;z-index:1000;background:#ffffff;color:#000;padding:8px 12px;border-radius:8px}
+
+        .lang-select{appearance:none;background:#141b33;color:var(--text);border:1px solid #223055;border-radius:8px;padding:8px 12px;font-weight:600}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    </style>
+    <script id="faq-jsonld" type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Энэ албан ёсны орчуулга мөн үү?","acceptedAnswer":{"@type":"Answer","text":"Үгүй. Энэ нь албан бус орчуулгын төсөл бөгөөд зөвлөх/хууль зүйн зөвлөгөө биш. Албан эх сурвалжийг NIST-ээс шалгана уу."}},
+        {"@type":"Question","name":"Лиценз, зохиогчийн эрх?","acceptedAnswer":{"@type":"Answer","text":"NIST–ийн эх материал нь АНУ-ын засгийн газрын бүтээл тул олон нийтийн өмчийн шинжтэй. Энэ орчуулгыг CC BY 4.0 лицензээр түгээхээр төлөвлөсөн (ишлэл заавал). Энэхүү орчуулга нь NIST‑ийн дэмжлэг/баталгаа биш."}},
+        {"@type":"Question","name":"Хэрхэн хувь нэмэр оруулах вэ?","acceptedAnswer":{"@type":"Answer","text":"Алдаа, санал, нэр томьёоны сангийн засварыг бид GitHub агуулах дээр авч үзнэ (удахгүй нээгдэнэ). Түр хугацаанд имэйлээр санал илгээнэ үү."}},
+        {"@type":"Question","name":"Хувилбар ба хамрах хүрээ?","acceptedAnswer":{"@type":"Answer","text":"CSF 2.0 (2024) хувилбарт тулгуурласан. Орчуулгын огноо: 2025-08-08. Шинэчлэл хийгдэхэд хувилбарчлал даган шинэлэгдэнэ."}}
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main" data-i18n="skip_to_content">Үндсэн хэсэг рүү алгасах</a>
+    <header>
+        <div class="container">
+            <nav aria-label="Main">
+                                <div class="logo">
+                                        <a href="#main" class="logo-link" aria-label="NIST CSF 2.0 – Home">
+                                                <!-- Inline SVG logo (generated) -->
+                                                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                                                    <defs>
+                                                        <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
+                                                            <stop offset="0%" stop-color="#5b9cff"/>
+                                                            <stop offset="100%" stop-color="#8b5bff"/>
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <circle cx="32" cy="32" r="30" fill="url(#g-logo)"/>
+                                                    <!-- Shield -->
+                                                    <path d="M32 14 L48 20 v12c0 11-7.5 20.5-16 24-8.5-3.5-16-13-16-24V20z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                                                    <!-- Check mark -->
+                                                    <path d="M24 33 l8 7 12-14" fill="none" stroke="#c8f1ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                        </a>
+                                        NIST CSF 2.0 • MN
+                                </div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="#about" data-i18n="nav_about">Тойм</a>
+                        <a href="#functions" data-i18n="nav_functions">Функцууд</a>
+                        <a href="#whatsnew" data-i18n="nav_whatsnew">Шинэ юу</a>
+                        <a href="#download" data-i18n="nav_download">Татах</a>
+                        <a href="#faq" data-i18n="nav_faq">Асуулт</a>
+                        <!-- TODO: replace REPO_OWNER/REPO_NAME with your repo path after creation -->
+                        <a href="https://github.com/REPO_OWNER/REPO_NAME/issues" target="_blank" rel="noopener noreferrer" data-i18n="nav_contribute">Хувь нэмэр</a>
+                    </div>
+                    <label for="lang-select" class="sr-only">Language</label>
+                    <select id="lang-select" class="lang-select" aria-label="Language">
+                        <option value="mn">MN</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="hero">
+            <span class="badge" data-i18n="badge" data-i18n-html="true"><span class="dot" aria-hidden="true"></span> Албан бус орчуулга • Лавлах эх: <a
+                    href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST CSF 2.0</a>
+                (2024)</span>
+            <h1 data-i18n="hero_title">NIST CSF 2.0 – Монгол орчуулга</h1>
+            <p class="sub" data-i18n="hero_sub">
+                Кибер аюулгүй байдлын хүрээ (Cybersecurity Framework) 2.0 хувилбарыг монгол хэлээр хүргэх зорилготой
+                нээлттэй орчуулгын төсөл.
+                Байгууллагууд эрсдэлийг системтэй удирдаж, хөтөлбөрөө сайжруулахад чиглэсэн практик хөтөч.
+            </p>
+            <div class="cta">
+                <button class="btn primary" type="button" disabled aria-disabled="true" data-i18n="cta_pdf">Орчуулга (PDF) • v0.9 драфт</button>
+                <a class="btn" href="#subscribe" data-i18n="cta_updates">Шинэчлэл авах</a>
+                <a class="btn" href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer" data-i18n="cta_official">Албан эх сурвалж (NIST)</a>
+            </div>
+            <p class="note" style="margin-top:10px" data-i18n="disclaimer_note">Анхааруулга: Энэ нь албан ёсны бус, зөвлөх бус мэдээлэл. Албан эхийг
+                заавал мөрдөөрэй.</p>
+        </section>
+
+        <section id="about">
+            <div class="grid cols-3">
+                <div class="card">
+                    <span class="kicker" data-i18n="about_goal_kicker">Зорилго</span>
+                    <h3 data-i18n="about_goal_title">Эрсдэлд суурилсан удирдлага</h3>
+                    <p class="muted" data-i18n="about_goal_text">CSF нь байгууллагын хэмжээнд кибер эрсдэлийг тодорхойлж, давуу тал, сул талыг
+                        үнэлж, сайжруулах төлөвлөгөө (профайл) гаргахад тусалдаг.</p>
+                </div>
+                <div class="card">
+                    <span class="kicker" data-i18n="about_use_kicker">Хэрэглээ</span>
+                    <h3 data-i18n="about_use_title">Салбар-агностик, уян хатан</h3>
+                    <p class="muted" data-i18n="about_use_text">ЖДҮ-ээс эхлээд том корпораци, төрийн байгууллага хүртэл—ямар ч байгууллагад
+                        нийцүүлэн хэрэгжүүлэх боломжтой.</p>
+                </div>
+                <div class="card">
+                    <span class="kicker" data-i18n="about_pillars_kicker">Тулгуур</span>
+                    <h3 data-i18n="about_pillars_title">Гүйцэтгэлийн түвшин ба хэмжүүр</h3>
+                    <p class="muted" data-i18n="about_pillars_text">Гүйцэтгэлийн хэмжүүр, Tiers болон профайлаар дамжуулан зорилтот төлөвт хүрэх,
+                        ахицыг хэмжих аргачлалтай.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="functions">
+            <h2 data-i18n="functions_heading">CSF 2.0–ийн 6 үндсэн функц</h2>
+            <div class="grid cols-3" style="margin-top:10px">
+                <div class="card">
+                    <span class="pill" data-i18n="func_govern_pill">Засаглал (Govern)</span>
+                    <h3 data-i18n="func_govern_title">Бодлого, үүрэг, шийдвэр</h3>
+                    <ul class="list">
+                        <li data-i18n="func_govern_li1">Удирдлагын оролцоо, хариуцлага</li>
+                        <li data-i18n="func_govern_li2">Эрсдэлийн дуршил, хүлцэл</li>
+                        <li data-i18n="func_govern_li3">Стратеги, хөрөнгө оруулалтын шийдвэр</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="pill" data-i18n="func_identify_pill">Тодорхойлох (Identify)</span>
+                    <h3 data-i18n="func_identify_title">Орчин ба эрсдэл</h3>
+                    <ul class="list">
+                        <li data-i18n="func_identify_li1">Актив, систем, өгөгдөл</li>
+                        <li data-i18n="func_identify_li2">Бизнесийн контекст, эрх зүйн шаардлага</li>
+                        <li data-i18n="func_identify_li3">Эрсдэлийн үнэлгээ</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="pill" data-i18n="func_protect_pill">Хамгаалах (Protect)</span>
+                    <h3 data-i18n="func_protect_title">Урьдчилан сэргийлэх хяналт</h3>
+                    <ul class="list">
+                        <li data-i18n="func_protect_li1">Таних ба нэвтрэлтийн удирдлага (IAM)</li>
+                        <li data-i18n="func_protect_li2">Сургалт, мэдлэг</li>
+                        <li data-i18n="func_protect_li3">Мэдээлэл хамгаалалт</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="pill" data-i18n="func_detect_pill">Илрүүлэх (Detect)</span>
+                    <h3 data-i18n="func_detect_title">Тасралтгүй хяналт</h3>
+                    <ul class="list">
+                        <li data-i18n="func_detect_li1">Лог, хэв шинж ба аномали илрүүлэлт</li>
+                        <li data-i18n="func_detect_li2">Мэдэгдэл, анхааруулга</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="pill" data-i18n="func_respond_pill">Хариу арга хэмжээ (Respond)</span>
+                    <h3 data-i18n="func_respond_title">Инцидентын менежмент</h3>
+                    <ul class="list">
+                        <li data-i18n="func_respond_li1">Төлөвлөлт, зохицуулалт</li>
+                        <li data-i18n="func_respond_li2">Харилцаа, тайлагнал</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="pill" data-i18n="func_recover_pill">Сэргээлт (Recover)</span>
+                    <h3 data-i18n="func_recover_title">Тэсвэржилт ба тасралтгүй байдал</h3>
+                    <ul class="list">
+                        <li data-i18n="func_recover_li1">Сэргээх зорилт, RTO/RPO</li>
+                        <li data-i18n="func_recover_li2">Сургамж, сайжруулалт</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="whatsnew">
+            <div class="grid cols-2">
+                <div class="card">
+                    <span class="kicker" data-i18n="whatsnew_kicker">Шинэ юу</span>
+                    <h3 data-i18n="whatsnew_title">CSF 2.0 шинэчлэлтүүд</h3>
+                    <ul class="list">
+                        <li data-i18n="whatsnew_li1" data-i18n-html="true"><strong>Засаглал</strong> функц шинээр нэмэгдсэн</li>
+                        <li data-i18n="whatsnew_li2" data-i18n-html="true">Ханган нийлүүлэгч, нийлүүлэлтийн сүлжээний эрсдэлд илүү анхаарсан</li>
+                        <li data-i18n="whatsnew_li3" data-i18n-html="true">Гүйцэтгэлийн <strong>хэмжүүр</strong> ба жишиг сайжирсан</li>
+                        <li data-i18n="whatsnew_li4" data-i18n-html="true">Профайл, <strong>Tiers</strong> тайлбар шинэчилсэн</li>
+                        <li data-i18n="whatsnew_li5" data-i18n-html="true">Салбар-агностик, бүх хэмжээний байгууллагад чиглэсэн</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <span class="kicker" data-i18n="audience_kicker">Хэнд зориулав</span>
+                    <h3 data-i18n="audience_title">Хэрэглэгчийн хүрээ</h3>
+                    <ul class="list">
+                        <li data-i18n="audience_li1">CISO/CIO, эрсдэлийн менежер</li>
+                        <li data-i18n="audience_li2">IT/OT, баталгаажуулалт, дотоод аудит</li>
+                        <li data-i18n="audience_li3">ЖДҮ болон төрийн байгууллагууд</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="download">
+            <h2 data-i18n="download_heading">Татах ба эх сурвалж</h2>
+            <div class="grid cols-3" style="margin-top:10px">
+                <div class="card">
+                    <h3 data-i18n="download_pdf_title">Орчуулга (PDF)</h3>
+                    <p class="muted">v0.9 драфт • <span class="mono">2025-08-08</span></p>
+                    <button class="btn" type="button" disabled aria-disabled="true" data-i18n="download_pdf_button">Татах (түр хаалттай)</button>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="download_glossary_title">Нэр томьёоны сан</h3>
+                    <p class="muted" data-i18n="download_glossary_text">CSF–ийн гол нэр томьёоны тогтсон орчуулга.</p>
+                    <button class="btn" type="button" disabled aria-disabled="true" data-i18n="download_glossary_button">Глоссари</button>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="download_poster_title">Нэг хуудсын постер</h3>
+                    <p class="muted" data-i18n="download_poster_text">6 функц, өндөр түвшний зураглал.</p>
+                    <button class="btn" type="button" disabled aria-disabled="true" data-i18n="download_poster_button">Постер (PDF)</button>
+                </div>
+            </div>
+            <p class="note" style="margin-top:10px" data-i18n="download_note">Татах холбоосууд удахгүй нээгдэнэ. Санал хүсэлт илгээж дэмжээрэй.
+            </p>
+        </section>
+
+        <section id="subscribe">
+            <div class="card">
+                <h3 data-i18n="subscribe_title">Шинэчлэлийн мэдээ авах</h3>
+                <p class="muted" data-i18n="subscribe_text">Имэйлээ үлдээнэ үү. Шинэ хувилбар, засвар, татах боломж нээгдэхэд мэдэгдэнэ.</p>
+                <form id="subscribe-form" aria-label="Subscribe form">
+                    <div style="display:flex;gap:10px;flex-wrap:wrap">
+                        <input id="email" name="email" type="email" required placeholder="Имэйл хаяг"
+                            style="flex:1;min-width:240px;padding:12px 14px;border-radius:10px;border:1px solid #273454;background:#0a1124;color:var(--text)"
+                            aria-label="Имэйл">
+                        <button class="btn primary" type="submit" data-i18n="subscribe_button">Бүртгүүлэх</button>
+                    </div>
+                    <p id="subscribe-status" class="muted" role="status" style="margin-top:8px"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2 data-i18n="faq_heading">Түгээмэл асуултууд</h2>
+            <div class="faq card">
+                <details>
+                    <summary data-i18n="faq_q1">Энэ албан ёсны орчуулга мөн үү?</summary>
+                    <div class="muted" data-i18n="faq_a1" data-i18n-html="true">Үгүй. Энэ нь <strong>албан бус</strong> орчуулгын төсөл бөгөөд зөвлөх/хууль зүйн
+                        зөвлөгөө биш. Албан эх сурвалжийг <a href="https://www.nist.gov/cyberframework" target="_blank"
+                            rel="noopener noreferrer">NIST</a>-ээс шалгана уу.</div>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q2">Лиценз, зохиогчийн эрх?</summary>
+                    <div class="muted" data-i18n="faq_a2" data-i18n-html="true">NIST–ийн эх материал нь АНУ-ын засгийн газрын бүтээл тул олон нийтийн өмчийн
+                        шинжтэй. Энэ орчуулгыг <strong>CC BY 4.0</strong> лицензээр түгээхээр төлөвлөсөн (ишлэл заавал).
+                        Энэхүү орчуулга нь NIST‑ийн дэмжлэг/баталгаа биш.
+                    </div>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q3">Хэрхэн хувь нэмэр оруулах вэ?</summary>
+                    <div class="muted" data-i18n="faq_a3" data-i18n-html="true">Алдаа, санал, нэр томьёоны сангийн засварыг бид GitHub агуулах дээр авч үзнэ
+                        (удахгүй нээгдэнэ). Түр хугацаанд имэйлээр санал илгээнэ үү.</div>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q4">Хувилбар ба хамрах хүрээ?</summary>
+                    <div class="muted" data-i18n="faq_a4" data-i18n-html="true">CSF 2.0 (2024) хувилбарт тулгуурласан. Орчуулгын огноо: <span
+                            class="mono">2025-08-08</span>. Шинэчлэл хийгдэхэд хувилбарчлал даган шинэлэгдэнэ.</div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+            <div data-i18n="footer_copyright">© 2025 • NIST CSF 2.0 Монгол орчуулгын төсөл</div>
+            <div><span data-i18n="footer_contact_label">Холбогдох:</span> <a href="mailto:contact@cybersec.mn">contact@cybersec.mn</a></div>
+        </div>
+    </footer>
+
+    <script>
+    (function(){
+      const i18n = {
+        mn: {
+          head_title: 'NIST CSF 2.0 – Монгол орчуулга',
+          head_desc: 'NIST Cybersecurity Framework 2.0–ийн монгол орчуулгын төслийн танилцуулга, татах холбоосууд, тайлбар, түгээмэл асуултууд.',
+          skip_to_content: 'Үндсэн хэсэг рүү алгасах',
+          nav_about: 'Тойм', nav_functions: 'Функцууд', nav_whatsnew:'Шинэ юу', nav_download:'Татах', nav_faq:'Асуулт',
+          nav_contribute:'Хувь нэмэр',
+          badge: '<span class="dot" aria-hidden="true"></span> Албан бус орчуулга • Лавлах эх: <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST CSF 2.0</a> (2024)',
+          hero_title: 'NIST CSF 2.0 – Монгол орчуулга',
+          hero_sub: 'Кибер аюулгүй байдлын хүрээ (Cybersecurity Framework) 2.0 хувилбарыг монгол хэлээр хүргэх зорилготой нээлттэй орчуулгын төсөл. Байгууллагууд эрсдэлийг системтэй удирдаж, хөтөлбөрөө сайжруулахад чиглэсэн практик хөтөч.',
+          cta_pdf: 'Орчуулга (PDF) • v0.9 драфт', cta_updates:'Шинэчлэл авах', cta_official:'Албан эх сурвалж (NIST)',
+          disclaimer_note: 'Анхааруулга: Энэ нь албан ёсны бус, зөвлөх бус мэдээлэл. Албан эхийг заавал мөрдөөрэй.',
+          about_goal_kicker:'Зорилго', about_goal_title:'Эрсдэлд суурилсан удирдлага', about_goal_text:'CSF нь байгууллагын хэмжээнд кибер эрсдэлийг тодорхойлж, давуу тал, сул талыг үнэлж, сайжруулах төлөвлөгөө (профайл) гаргахад тусалдаг.',
+          about_use_kicker:'Хэрэглээ', about_use_title:'Салбар-агностик, уян хатан', about_use_text:'ЖДҮ-ээс эхлээд том корпораци, төрийн байгууллага хүртэл—ямар ч байгууллагад нийцүүлэн хэрэгжүүлэх боломжтой.',
+          about_pillars_kicker:'Тулгуур', about_pillars_title:'Гүйцэтгэлийн түвшин ба хэмжүүр', about_pillars_text:'Гүйцэтгэлийн хэмжүүр, Tiers болон профайлаар дамжуулан зорилтот төлөвт хүрэх, ахицыг хэмжих аргачлалтай.',
+          functions_heading:'CSF 2.0–ийн 6 үндсэн функц',
+          func_govern_pill:'Засаглал (Govern)', func_govern_title:'Бодлого, үүрэг, шийдвэр', func_govern_li1:'Удирдлагын оролцоо, хариуцлага', func_govern_li2:'Эрсдэлийн дуршил, хүлцэл', func_govern_li3:'Стратеги, хөрөнгө оруулалтын шийдвэр',
+          func_identify_pill:'Тодорхойлох (Identify)', func_identify_title:'Орчин ба эрсдэл', func_identify_li1:'Актив, систем, өгөгдөл', func_identify_li2:'Бизнесийн контекст, эрх зүйн шаардлага', func_identify_li3:'Эрсдэлийн үнэлгээ',
+          func_protect_pill:'Хамгаалах (Protect)', func_protect_title:'Урьдчилан сэргийлэх хяналт', func_protect_li1:'Таних ба нэвтрэлтийн удирдлага (IAM)', func_protect_li2:'Сургалт, мэдлэг', func_protect_li3:'Мэдээлэл хамгаалалт',
+          func_detect_pill:'Илрүүлэх (Detect)', func_detect_title:'Тасралтгүй хяналт', func_detect_li1:'Лог, хэв шинж ба аномали илрүүлэлт', func_detect_li2:'Мэдэгдэл, анхааруулга',
+          func_respond_pill:'Хариу арга хэмжээ (Respond)', func_respond_title:'Инцидентын менежмент', func_respond_li1:'Төлөвлөлт, зохицуулалт', func_respond_li2:'Харилцаа, тайлагнал',
+          func_recover_pill:'Сэргээлт (Recover)', func_recover_title:'Тэсвэржилт ба тасралтгүй байдал', func_recover_li1:'Сэргээх зорилт, RTO/RPO', func_recover_li2:'Сургамж, сайжруулалт',
+          whatsnew_kicker:'Шинэ юу', whatsnew_title:'CSF 2.0 шинэчлэлтүүд', whatsnew_li1:'<strong>Засаглал</strong> функц шинээр нэмэгдсэн', whatsnew_li2:'Ханган нийлүүлэгч, нийлүүлэлтийн сүлжээний эрсдэлд илүү анхаарсан', whatsnew_li3:'Гүйцэтгэлийн <strong>хэмжүүр</strong> ба жишиг сайжирсан', whatsnew_li4:'Профайл, <strong>Tiers</strong> тайлбар шинэчилсэн', whatsnew_li5:'Салбар-агностик, бүх хэмжээний байгууллагад чиглэсэн',
+          audience_kicker:'Хэнд зориулав', audience_title:'Хэрэглэгчийн хүрээ', audience_li1:'CISO/CIO, эрсдэлийн менежер', audience_li2:'IT/OT, баталгаажуулалт, дотоод аудит', audience_li3:'ЖДҮ болон төрийн байгууллагууд',
+          download_heading:'Татах ба эх сурвалж', download_pdf_title:'Орчуулга (PDF)', download_pdf_button:'Татах (түр хаалттай)', download_glossary_title:'Нэр томьёоны сан', download_glossary_text:'CSF–ийн гол нэр томьёоны тогтсон орчуулга.', download_glossary_button:'Глоссари', download_poster_title:'Нэг хуудсын постер', download_poster_text:'6 функц, өндөр түвшний зураглал.', download_poster_button:'Постер (PDF)', download_note:'Татах холбоосууд удахгүй нээгдэнэ. Санал хүсэлт илгээж дэмжээрэй.',
+          subscribe_title:'Шинэчлэлийн мэдээ авах', subscribe_text:'Имэйлээ үлдээнэ үү. Шинэ хувилбар, засвар, татах боломж нээгдэхэд мэдэгдэнэ.', subscribe_button:'Бүртгүүлэх',
+          subscribe_email_placeholder:'Имэйл хаяг', subscribe_email_aria:'Имэйл',
+          subscribe_status_empty:'Имэйлээ оруулна уу.', subscribe_status_invalid:'Имэйл хаягийн форматыг шалгана уу.', subscribe_status_duplicate:'Та өмнө нь бүртгүүлсэн байна.', subscribe_status_success:'Бүртгэл амжилттай. Тун удахгүй танд мэдээлнэ.', subscribe_status_error:'Алдаа гарлаа. Дахин оролдоно уу.',
+          faq_heading:'Түгээмэл асуултууд', faq_q1:'Энэ албан ёсны орчуулга мөн үү?', faq_a1:'Үгүй. Энэ нь <strong>албан бус</strong> орчуулгын төсөл бөгөөд зөвлөх/хууль зүйн зөвлөгөө биш. Албан эх сурвалжийг <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST</a>-ээс шалгана уу.',
+          faq_q2:'Лиценз, зохиогчийн эрх?', faq_a2:'NIST–ийн эх материал нь АНУ-ын засгийн газрын бүтээл тул олон нийтийн өмчийн шинжтэй. Энэ орчуулгыг <strong>CC BY 4.0</strong> лицензээр түгээхээр төлөвлөсөн (ишлэл заавал). Энэхүү орчуулга нь NIST‑ийн дэмжлэг/баталгаа биш.',
+          faq_q3:'Хэрхэн хувь нэмэр оруулах вэ?', faq_a3:'Алдаа, санал, нэр томьёоны сангийн засварыг бид GitHub агуулах дээр авч үзнэ (удахгүй нээгдэнэ). Түр хугацаанд имэйлээр санал илгээнэ үү.',
+          faq_q4:'Хувилбар ба хамрах хүрээ?', faq_a4:'CSF 2.0 (2024) хувилбарт тулгуурласан. Орчуулгын огноо: <span class="mono">2025-08-08</span>. Шинэчлэл хийгдэхэд хувилбарчлал даган шинэлэгдэнэ.',
+          footer_contact_label:'Холбогдох:', footer_copyright:'© 2025 • NIST CSF 2.0 Монгол орчуулгын төсөл'
+        },
+        en: {
+          head_title: 'NIST CSF 2.0 – Mongolian Translation',
+          head_desc: 'Landing page for the Mongolian translation project of the NIST Cybersecurity Framework 2.0: overview, downloads, notes, and FAQs.',
+          skip_to_content: 'Skip to main content',
+          nav_about: 'Overview', nav_functions: 'Functions', nav_whatsnew:"What's new", nav_download:'Downloads', nav_faq:'FAQ',
+          nav_contribute:'Contribute',
+          badge: '<span class="dot" aria-hidden="true"></span> Unofficial translation • Reference: <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST CSF 2.0</a> (2024)',
+          hero_title: 'NIST CSF 2.0 – Mongolian Translation',
+          hero_sub: 'An open project to provide a Mongolian translation of the Cybersecurity Framework (CSF) version 2.0. A practical guide to help organizations manage risk and improve their programs.',
+          cta_pdf: 'Translation (PDF) • v0.9 draft', cta_updates:'Get updates', cta_official:'Official source (NIST)',
+          disclaimer_note: 'Note: This is unofficial and not legal advice. Always consult the official source.',
+          about_goal_kicker:'Purpose', about_goal_title:'Risk-based management', about_goal_text:'CSF helps organizations identify cybersecurity risk, assess strengths and gaps, and build an improvement plan (profile).',
+          about_use_kicker:'Usage', about_use_title:'Sector-agnostic, flexible', about_use_text:'From SMEs to large enterprises and public sector—adaptable to any organization.',
+          about_pillars_kicker:'Foundations', about_pillars_title:'Performance levels and metrics', about_pillars_text:'Measure progress toward a target state with metrics, tiers, and profiles.',
+          functions_heading:'The 6 core functions of CSF 2.0',
+          func_govern_pill:'Govern', func_govern_title:'Policy, roles, decisions', func_govern_li1:'Leadership engagement and accountability', func_govern_li2:'Risk appetite and tolerance', func_govern_li3:'Strategy and investment decisions',
+          func_identify_pill:'Identify', func_identify_title:'Environment and risk', func_identify_li1:'Assets, systems, data', func_identify_li2:'Business context and legal requirements', func_identify_li3:'Risk assessment',
+          func_protect_pill:'Protect', func_protect_title:'Preventive controls', func_protect_li1:'Identity and access management (IAM)', func_protect_li2:'Training and awareness', func_protect_li3:'Data protection',
+          func_detect_pill:'Detect', func_detect_title:'Continuous monitoring', func_detect_li1:'Logs, patterns and anomaly detection', func_detect_li2:'Alerting and notifications',
+          func_respond_pill:'Respond', func_respond_title:'Incident management', func_respond_li1:'Planning and coordination', func_respond_li2:'Communications and reporting',
+          func_recover_pill:'Recover', func_recover_title:'Resilience and continuity', func_recover_li1:'Recovery objectives (RTO/RPO)', func_recover_li2:'Lessons learned and improvement',
+          whatsnew_kicker:"What's new", whatsnew_title:'Updates in CSF 2.0', whatsnew_li1:'<strong>Govern</strong> function added', whatsnew_li2:'Greater focus on supplier and supply chain risk', whatsnew_li3:'Improved <strong>metrics</strong> and examples', whatsnew_li4:'Updated profiles and <strong>tiers</strong> descriptions', whatsnew_li5:'Applicable to organizations of all sizes',
+          audience_kicker:"Who it's for", audience_title:'Target users', audience_li1:'CISO/CIO, risk managers', audience_li2:'IT/OT, assurance, internal audit', audience_li3:'SMEs and public sector organizations',
+          download_heading:'Downloads and sources', download_pdf_title:'Translation (PDF)', download_pdf_button:'Download (coming soon)', download_glossary_title:'Glossary', download_glossary_text:'Approved translations for key CSF terms.', download_glossary_button:'Glossary', download_poster_title:'One-page poster', download_poster_text:'6 functions, high-level overview.', download_poster_button:'Poster (PDF)', download_note:'Links will be available soon. Send feedback to support the effort.',
+          subscribe_title:'Get update notifications', subscribe_text:"Leave your email. We'll notify you when new versions and downloads are available.", subscribe_button:'Subscribe',
+          subscribe_email_placeholder:'Email address', subscribe_email_aria:'Email',
+          subscribe_status_empty:'Please enter your email.', subscribe_status_invalid:'Please check your email format.', subscribe_status_duplicate:'You have already subscribed.', subscribe_status_success:"Subscription successful. We'll be in touch soon.", subscribe_status_error:'An error occurred. Please try again.',
+          faq_heading:'Frequently asked questions', faq_q1:'Is this an official translation?', faq_a1:'No. This is an <strong>unofficial</strong> translation project and not legal or consulting advice. Check the official source at <a href=\"https://www.nist.gov/cyberframework\" target=\"_blank\" rel=\"noopener noreferrer\">NIST</a>.',
+          faq_q2:'License and copyright?', faq_a2:'NIST source material is a work of the U.S. Government and is public domain in nature. This translation is planned to be distributed under <strong>CC BY 4.0</strong> (attribution required). This translation is not endorsed by NIST.',
+          faq_q3:'How can I contribute?', faq_a3:'We will review issues and term updates via a GitHub repository (coming soon). For now, please email feedback.',
+          faq_q4:'Version and scope?', faq_a4:'Based on CSF 2.0 (2024). Translation date: 2025-08-08. Updates will follow versioning.',
+          footer_contact_label:'Contact:', footer_copyright:'© 2025 • NIST CSF 2.0 Mongolian translation project'
+        }
+      };
+
+      function updateJsonLd(lang){
+        const dict = i18n[lang];
+        const strip = (s)=> s.replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+        const data = {
+          '@context':'https://schema.org',
+          '@type':'FAQPage',
+          mainEntity:[
+            { '@type':'Question', name: dict.faq_q1, acceptedAnswer: { '@type':'Answer', text: strip(dict.faq_a1) } },
+            { '@type':'Question', name: dict.faq_q2, acceptedAnswer: { '@type':'Answer', text: strip(dict.faq_a2) } },
+            { '@type':'Question', name: dict.faq_q3, acceptedAnswer: { '@type':'Answer', text: strip(dict.faq_a3) } },
+            { '@type':'Question', name: dict.faq_q4, acceptedAnswer: { '@type':'Answer', text: strip(dict.faq_a4) } }
+          ]
+        };
+        const el = document.getElementById('faq-jsonld');
+        if(el){ el.textContent = JSON.stringify(data, null, 2); }
+      }
+
+      function applyLang(lang){
+        const dict = i18n[lang] || i18n.mn;
+        document.documentElement.lang = lang;
+        // Text / HTML
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+          const key = el.getAttribute('data-i18n');
+          const val = dict[key]; if(val==null) return;
+          if(el.getAttribute('data-i18n-html')==='true'){ el.innerHTML = val; }
+          else { el.textContent = val; }
+        });
+        // Email input
+        const email = document.getElementById('email');
+        if(email){ email.placeholder = dict.subscribe_email_placeholder; email.setAttribute('aria-label', dict.subscribe_email_aria); }
+        // Head
+        document.title = dict.head_title;
+        const metaDesc = document.getElementById('meta-desc'); if(metaDesc) metaDesc.setAttribute('content', dict.head_desc);
+        const ogDesc = document.getElementById('og-desc'); if(ogDesc) ogDesc.setAttribute('content', dict.head_desc);
+        const ogLocale = document.getElementById('og-locale'); if(ogLocale) ogLocale.setAttribute('content', lang==='en'?'en_US':'mn_MN');
+        const canonical = document.getElementById('canonical'); if(canonical){ const base = 'https://example.mn/csf2-mn'; canonical.href = lang==='en'? base+'?lang=en' : base; }
+        // JSON-LD
+        updateJsonLd(lang);
+        // Persist and set selector
+        try{ localStorage.setItem('lang', lang); }catch(_){ }
+        const sel = document.getElementById('lang-select'); if(sel) sel.value = lang;
+        // Expose
+        window.__lang = lang; window.__t = (k)=> (i18n[window.__lang]||i18n.mn)[k] || k;
+      }
+
+      window.addEventListener('DOMContentLoaded', ()=>{
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang');
+        const saved = (function(){ try { return localStorage.getItem('lang'); } catch(_){ return null; } })();
+        let initial = urlLang || saved;
+        if(!initial){
+          const nav = navigator;
+          const prefs = (nav.languages && nav.languages.length? nav.languages : [nav.language || '']).map(x=>x.toLowerCase());
+          if(prefs.some(x=>x.startsWith('en'))) initial = 'en';
+          else initial = 'mn';
+        }
+        applyLang(initial);
+        const sel = document.getElementById('lang-select');
+        sel?.addEventListener('change', (e)=> applyLang(e.target.value));
+      });
+    })();
+    </script>
+
+    <script>
+        (function () {
+            const form = document.getElementById('subscribe-form');
+            const status = document.getElementById('subscribe-status');
+            const emailInput = document.getElementById('email');
+            form?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const t = (k)=> (window.__t? window.__t(k) : k);
+                const email = emailInput.value.trim();
+                if (!email) { status.textContent = t('subscribe_status_empty'); emailInput.setAttribute('aria-invalid','true'); return; }
+                if (!form.checkValidity()) { status.textContent = t('subscribe_status_invalid'); emailInput.setAttribute('aria-invalid','true'); return; }
+                try {
+                    // Демо горим: локалд хадгалж, амжилтын мэдэгдэл үзүүлнэ
+                    const list = JSON.parse(localStorage.getItem('csf_subs') || '[]');
+                    if (list.includes(email)) { status.textContent = t('subscribe_status_duplicate'); form.reset(); emailInput.removeAttribute('aria-invalid'); return; }
+                    list.push(email); localStorage.setItem('csf_subs', JSON.stringify(list));
+                    status.innerHTML = `<span class="success">${t('subscribe_status_success')}</span>`;
+                    emailInput.removeAttribute('aria-invalid');
+                    form.reset();
+                } catch (_) {
+                    status.textContent = t('subscribe_status_error');
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
